@@ -5,11 +5,17 @@ description = "A comparative study of RAD embeddings and natural language instru
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
-    "dfa-gym>=0.2.3",
-    "dfax>=0.1.10",
+    "dfax>=0.1.14",
+    "dfa-gym>=0.2.14",
     "wandb==0.21.4",
     "distrax==0.1.5",
     "pandas==2.3.2",
     "dill>=0.4.1",
     "rad-embeddings>=0.2.0"
+]
+
+[project.optional-dependencies]
+cuda = [
+    "dfax[cuda]>=0.1.14",
+    "dfa-gym[cuda]>=0.2.14",
 ]

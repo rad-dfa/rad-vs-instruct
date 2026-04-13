@@ -464,32 +464,42 @@ wheels = [
 
 [[package]]
 name = "dfa-gym"
-version = "0.2.3"
+version = "0.2.14"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "dfax" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/64/67/b5b10bd83a66f051354aa61747fef3c31846eb68fa0ccd13e44483fa05c6/dfa_gym-0.2.3.tar.gz", hash = "sha256:9d166b073a8f953e220d032cc883267765d49dd5dbe5eb0e322c23d59d24c65e", size = 129927, upload-time = "2026-02-14T05:07:19.233Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/76/47/977d08f390df913e15fdcb32ba2788cee192041128c260a6fc34bd38998f/dfa_gym-0.2.14.tar.gz", hash = "sha256:6d5c51b6937d4c910f9677cb2bcdcf0cb635c330b503445a94884c44d69a8cf8", size = 208142, upload-time = "2026-04-07T06:38:43.42Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/b7/41/047a2c4d447d22350d17c4e5f2136fb49cefd2dc41edf2ed1258a471cace/dfa_gym-0.2.3-py3-none-any.whl", hash = "sha256:036f6243e8cdd5de0e2f2fdd669435589718272e9e24b01c9b219a618c6a66ce", size = 113864, upload-time = "2026-02-14T05:07:17.628Z" },
+    { url = "https://files.pythonhosted.org/packages/28/57/5ad83b04da1805c4a3a28bd5ec8bc66fb815a177f31f30a00354cff88eed/dfa_gym-0.2.14-py3-none-any.whl", hash = "sha256:5ad389abc7fb0f0b503e2c4c957c54e7c2d3f6da20c876cd87be04d66947ee42", size = 114214, upload-time = "2026-04-07T06:38:41.897Z" },
+]
+
+[package.optional-dependencies]
+cuda = [
+    { name = "dfax", extra = ["cuda"] },
 ]
 
 [[package]]
 name = "dfax"
-version = "0.1.10"
+version = "0.1.14"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "chex" },
     { name = "dfa" },
+    { name = "dill" },
     { name = "flax" },
-    { name = "jax", extra = ["cuda"] },
-    { name = "jaxlib" },
+    { name = "jax" },
     { name = "matplotlib" },
     { name = "networkx" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/7c/ea/3aa9c0e931e7fa6587cff10d0f32d0d35e7f4d49821c7bd991ee9e22c9b3/dfax-0.1.10.tar.gz", hash = "sha256:b27d2705e3f6d485b4a6a9afd69ec9bcd2dbc2296cb4cd805dcf9bd38bc59e82", size = 274406, upload-time = "2026-02-14T03:27:42.62Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/8f/29/0f921244f42cff3a7939f01161fb6f182b81ffa99ada457c345effa855fa/dfax-0.1.14.tar.gz", hash = "sha256:cc398898120f7fd57572b0b365e8e46c4f8839212d2f6652c5fa97e08d303526", size = 121032, upload-time = "2026-04-13T21:42:05.594Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/50/16/c8fabc443189d083e7db2126a50033c19395d48a2e694034b00dbfc74f01/dfax-0.1.10-py3-none-any.whl", hash = "sha256:12329672541bececeeaa5dd7617cff23519b5d5346d51a20fb6fcb47993f6da8", size = 11227, upload-time = "2026-02-14T03:27:40.175Z" },
+    { url = "https://files.pythonhosted.org/packages/e8/ac/4dbdaf03e88179cf0365f9ba66f42529ff29f5ca00f9ed3507e4e94be239/dfax-0.1.14-py3-none-any.whl", hash = "sha256:8ca04f0de30cf2db19d5621165b081f321df73243030fa5c04bc7769a5ed95ba", size = 12291, upload-time = "2026-04-13T21:42:04.284Z" },
+]
+
+[package.optional-dependencies]
+cuda = [
+    { name = "jax", extra = ["cuda"] },
 ]
 
 [[package]]
@@ -1930,16 +1940,25 @@ dependencies = [
     { name = "wandb" },
 ]
 
+[package.optional-dependencies]
+cuda = [
+    { name = "dfa-gym", extra = ["cuda"] },
+    { name = "dfax", extra = ["cuda"] },
+]
+
 [package.metadata]
 requires-dist = [
-    { name = "dfa-gym", specifier = ">=0.2.3" },
-    { name = "dfax", specifier = ">=0.1.10" },
+    { name = "dfa-gym", specifier = ">=0.2.14" },
+    { name = "dfa-gym", extras = ["cuda"], marker = "extra == 'cuda'", specifier = ">=0.2.14" },
+    { name = "dfax", specifier = ">=0.1.14" },
+    { name = "dfax", extras = ["cuda"], marker = "extra == 'cuda'", specifier = ">=0.1.14" },
     { name = "dill", specifier = ">=0.4.1" },
     { name = "distrax", specifier = "==0.1.5" },
     { name = "pandas", specifier = "==2.3.2" },
     { name = "rad-embeddings", specifier = ">=0.2.0" },
     { name = "wandb", specifier = "==0.21.4" },
 ]
+provides-extras = ["cuda"]
 
 [[package]]
 name = "requests"
